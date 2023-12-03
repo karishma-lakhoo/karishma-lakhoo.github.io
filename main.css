@@ -32,6 +32,7 @@ button {
     cursor: initial;
 }
 
+
 input[type="date"] {
     display: block;
     width: 100%;
@@ -56,6 +57,7 @@ body.dark input[type="date"] {
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
+
 
 
 body{
@@ -145,7 +147,7 @@ body.dark .create-todo input[type="text"] {
     width: 100%;
     font-size: 1.125rem;
     padding: 1rem 1.5rem;
-    color: var(--dark);
+    color: var(--grey);
     background-color: #251F25;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
@@ -352,6 +354,12 @@ body.dark .todo-item .todo-content input {
 .todo-item.done .todo-content input {
     text-decoration: line-through;
     color: var(--grey);
+}
+.mode {
+    display: flex;
+}
+.mode h4 {
+    padding: 10px;
 }
 .mode .toggle {
     height: 2rem;
