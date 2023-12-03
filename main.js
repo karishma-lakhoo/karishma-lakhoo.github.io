@@ -6,10 +6,11 @@ window.addEventListener('load', () => {
 
     const username = localStorage.getItem('username') || '';
     const toggle = document.querySelector(".toggle");
-    let getMode = localStorage.getItem('mode');
-    if(getMode && getMode === "dark"){
-        body.classList.add('dark')
-        toggle.classList.add('active')
+    const isDarkModeEnabled = localStorage.getItem('mode') === 'dark';
+
+    if (isDarkModeEnabled) {
+        body.classList.add('dark');
+        toggle.classList.add('active');
     }
 
     toggle.addEventListener("click", () => toggle.classList.toggle("active"))
@@ -94,6 +95,7 @@ function DisplayTodos () {
             span.classList.add('business');
         }
         content.classList.add('todo-content');
+        dueDate.classList.add('due-date')
         actions.classList.add('actions');
         edit.classList.add('edit');
         deleteButton.classList.add('delete');

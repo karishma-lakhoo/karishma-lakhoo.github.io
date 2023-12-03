@@ -44,6 +44,18 @@ input[type="date"] {
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
+body.dark input[type="date"] {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: var(--grey);
+    background-color: #251F25;
+    border: 1px solid #251F25;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 0.75rem;
+}
 
 
 body{
@@ -68,14 +80,34 @@ h2 {
     margin-bottom: 0.5rem;
 }
 
+body.dark h2 {
+    color: var(--light);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
 h3 {
-    color: var(--dark);
+    color: var(--light);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+body.dark h3 {
+    color: var(--light);
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
 }
 
 h4 {
+    color: var(--grey);
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+body.dark h4 {
     color: var(--grey);
     font-size: 0.875rem;
     font-weight: 700;
@@ -95,13 +127,6 @@ h4 {
     font-weight: 300;
 }
 
-/*.greeting.title,*/
-/*.greeting.title input {*/
-/*    color: var(--dark);*/
-/*    font-size: 1.5rem;*/
-/*    font-weight: 700;*/
-/*}*/
-
 
 .create-todo input[type="text"] {
     display: block;
@@ -114,6 +139,19 @@ h4 {
     box-shadow: var(--shadow);
     margin-bottom: 1.5rem;
 }
+
+body.dark .create-todo input[type="text"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--dark);
+    background-color: #251F25;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
 
 .create-todo .options {
     display: grid;
@@ -128,6 +166,18 @@ h4 {
     align-items: center;
     justify-content: center;
     background-color: #FFF;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+body.dark .create-todo .options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #251F25;
     padding: 1.5rem;
     box-shadow: var(--shadow);
     border-radius: 0.5rem;
@@ -183,13 +233,32 @@ input:checked ~ .bubble::after {
     font-size: 1.125rem;
     margin-top: 1rem;
 }
-
+body.dark .create-todo .options label div {
+    color: var(--grey);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
 .create-todo input[type="submit"] {
     display: block;
     width: 100%;
     font-size: 1.125rem;
     padding: 1rem 1.5rem;
     color: #FFF;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--primary);
+    box-shadow: var(--personal-glow);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+}
+
+body.dark .create-todo input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--light);
     font-weight: 700;
     text-transform: uppercase;
     background-color: var(--primary);
@@ -216,6 +285,15 @@ input:checked ~ .bubble::after {
     box-shadow: var(--shadow);
     margin-bottom: 1rem;
 }
+body.dark .todo-list .todo-item {
+    display: flex;
+    align-items: center;
+    background-color: #251F25;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
 
 .todo-item label {
     display: block;
@@ -232,8 +310,13 @@ input:checked ~ .bubble::after {
     font-size: 1.125rem;
 }
 
-.todo-item .due-date {
-    font-size: 2.5rem;
+body.dark .todo-item .todo-content input {
+    color: var(--grey);
+    font-size: 1.125rem;
+}
+
+.todo-item .due-date input{
+    font-size: 0.75rem;
     color: var(--grey);
     margin-top: 0.5rem;
 }
@@ -251,6 +334,7 @@ input:checked ~ .bubble::after {
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
+
 
 .todo-item .actions button:hover {
     opacity: 0.75;
@@ -272,20 +356,30 @@ input:checked ~ .bubble::after {
 .mode .toggle {
     height: 2rem;
     width: 4.5rem;
-    background: red;
+    background: white;
+    border-radius: 1.3rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease-in-out;
+
+}
+
+body.dark .mode .toggle {
+    height: 2rem;
+    width: 4.5rem;
+    background: #251F25;
     border-radius: 1.3rem;
     box-shadow: var(--shadow);
 }
 .mode .toggle::before{
     content:'';
-    background: var(--dark);
+    background: var(--personal);
     position: absolute;
     margin: 5px;
     width: 20px;
     height: 20px;
     border-radius: 999px;
-    border: 2px solid var(--dark);
-    box-shadow: var(--business-glow);
+    border: 2px solid var(--personal);
+    box-shadow: var(--dark);
     transition: all 0.3s ease-in-out;
 }
 .mode .toggle.active::before{
