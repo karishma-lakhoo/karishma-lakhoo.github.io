@@ -51,6 +51,10 @@ function DisplayTodos () {
     const todoList = document.querySelector('#todo-list');
     todoList.innerHTML = "";
 
+    todos.sort((a, b) => {
+        return new Date(a.dueDate) - new Date(b.dueDate);
+    });
+
     todos.forEach(todo => {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-item');
