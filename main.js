@@ -14,13 +14,25 @@ window.addEventListener('load', () => {
     newTodoForm.addEventListener('submit', e => {
         e.preventDefault();
 
+        // Validate the form fields
+        const contentValue = e.target.elements.content.value.trim();
+        const categoryValue = e.target.elements.category.value.trim();
+        const dueDateValue = e.target.elements.dueDate.value.trim();
+
+        if (!contentValue || !categoryValue || !dueDateValue) {
+            // Alert the user or provide feedback that all fields are required
+            alert("Please fill in all fields.");
+            return;
+        }
+
         const todo = {
-            content: e.target.elements.content.value,
-            category: e.target.elements.category.value,
-            dueDate: e.target.elements.dueDate.value,
+            content: contentValue,
+            category: categoryValue,
+            dueDate: dueDateValue,
             done: false,
             createdAt: new Date().getTime()
         }
+
 
         todos.push(todo);
 
