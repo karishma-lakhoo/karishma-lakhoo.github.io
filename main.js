@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
         const todo = {
             content: e.target.elements.content.value,
             category: e.target.elements.category.value,
+            dueDate: e.target.elements.dueDate.value,
             done: false,
             createdAt: new Date().getTime()
         }
@@ -46,6 +47,7 @@ function DisplayTodos () {
         const input = document.createElement('input');
         const span = document.createElement('span');
         const content = document.createElement('div');
+        const dueDate = document.createElement('div');
         const actions = document.createElement('div');
         const edit = document.createElement('button');
         const deleteButton = document.createElement('button');
@@ -64,6 +66,7 @@ function DisplayTodos () {
         deleteButton.classList.add('delete');
 
         content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+        dueDate.innerHTML = `<input type="text" value="${todo.dueDate}" readonly>`;
         edit.innerHTML = 'Edit';
         deleteButton.innerHTML = 'Delete';
 
@@ -73,6 +76,7 @@ function DisplayTodos () {
         actions.appendChild(deleteButton);
         todoItem.appendChild(label);
         todoItem.appendChild(content);
+        todoItem.appendChild(dueDate);
         todoItem.appendChild(actions);
 
         todoList.appendChild(todoItem);
