@@ -1,9 +1,26 @@
 window.addEventListener('load', () => {
+    const body = document.querySelector('body')
     todos = JSON.parse(localStorage.getItem('todos')) || [];
     const nameInput = document.querySelector('#name');
     const newTodoForm = document.querySelector('#new-todo-form');
 
     const username = localStorage.getItem('username') || '';
+    const toggle = document.querySelector(".toggle");
+    let getMode = localStorage.getItem('mode');
+    if(getMode && getMode === "dark"){
+        body.classList.add('dark')
+        toggle.classList.add('active')
+    }
+
+    toggle.addEventListener("click", () => toggle.classList.toggle("active"))
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('dark')
+
+        if(!body.classList.contains("dark")){
+            return localStorage.setItem('mode', 'light')
+        }
+        localStorage.setItem('mode', 'dark')
+    })
 
     nameInput.value = username;
 
