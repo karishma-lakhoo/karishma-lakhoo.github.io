@@ -40,7 +40,7 @@ input[type="date"] {
     padding: 0.5rem;
     color: var(--dark);
     background-color: #FFF;
-    border: 1px solid var(--grey);
+    border: 1px solid var(--light);
     border-radius: 0.25rem;
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
