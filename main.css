@@ -89,7 +89,7 @@ body.dark h2 {
 }
 
 h3 {
-    color: var(--light);
+    color: var(--dark);
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
