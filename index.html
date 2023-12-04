@@ -8,11 +8,19 @@
     <link href="https://fonts.google.com/ss?family=Oswald" rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;0,900;1,400&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <main class="app">
+        <section class="alerts">
+            <div id="customAlert" class="custom-alert">
+                <div class="alert-content">
+                    <span class="close-btn" onclick="closeAlert()">x</span>
+                    <p>Please fill in all fields.</p>
+                </div>
+            </div>
+        </section>
         <section class="greeting">
             <h2 class="title">
                 What's up <input type="text" id="name" placeholder="Name here">

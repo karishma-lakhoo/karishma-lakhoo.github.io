@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
 
         if (!contentValue || !categoryValue || !dueDateValue) {
             // Alert the user or provide feedback that all fields are required
-            alert("Please fill in all fields.");
+            showCustomAlert("Please fill in all fields.");
             return;
         }
 
@@ -154,4 +154,17 @@ function DisplayTodos () {
         })
 
     })
+}
+
+function showCustomAlert(message) {
+    var customAlert = document.getElementById('customAlert')
+    var alertContent = customAlert.querySelector('p');
+    alertContent.textContent = message;
+    customAlert.style.display = 'block'
+}
+
+function closeAlert(){
+    var customAlert = document.getElementById('customAlert')
+    customAlert.style.display = "none";
+
 }

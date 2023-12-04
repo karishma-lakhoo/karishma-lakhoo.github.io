@@ -393,3 +393,58 @@ body.dark .mode .toggle {
 .mode .toggle.active::before{
     left: 4rem
 }
+
+
+.alerts {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 3rem;
+}
+.alerts .custom-alert {
+    display: none;
+    position: fixed;
+    background-color: var(--light);
+    border-radius: 500px;
+    border: 2px solid var(--personal);
+    box-shadow: var(--dark);
+    padding: 0.8rem;
+}
+body.dark .alerts .custom-alert {
+    display: none;
+    position: fixed;
+    background-color: #251F25;
+    border-radius: 500px;
+    border: 2px solid #251F25;
+    box-shadow: #251F25;
+    padding: 0.8rem;
+}
+
+.alerts .alert-content {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.alerts .alert-content p{
+    padding: 10px;
+}
+body.dark .alerts .alert-content p {
+    padding: 10px;
+    color: var(--grey);
+}
+
+.alerts .close-btn{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+body.dark .alerts .close-btn{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: var(--grey);
+}
