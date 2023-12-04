@@ -4,10 +4,12 @@
     --business: #548CFF;
     --personal: var(--primary);
     --light: #EEE;
+    --white: #FFF;
     --grey: #888;
     --dark: #313154;
     --danger: #ff5b57;
     --mulberry: #251F25;
+    --shadowg: #0000001a;
 
     /*check if it works on firefox
     get rid of 100% use proper containers*/
@@ -19,7 +21,7 @@
     change delete naming conventoin to be more descriptive
     add comments*/
 
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow: 0 1px 3px var(--shadowg);
 
     --business-glow: 0px 0px 4px var(--business);
     --personal-glow: 0px 0px 4px var(--personal);
@@ -46,11 +48,11 @@ input[type="date"] {
     display: block;
     width: 100%;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
     color: var(--dark);
-    background-color: var(--light);
+    background-color: var(--white);
     border: 1px solid var(--light);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
@@ -58,11 +60,11 @@ body.dark input[type="date"] {
     display: block;
     width: 100%;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
     color: var(--grey);
     background-color: var(--mulberry);
     border: 1px solid var(--mulberry);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
@@ -143,9 +145,9 @@ body.dark h4 {
     display: block;
     width: 100%;
     font-size: 1.125rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     color: var(--dark);
-    background-color: #FFF;
+    background-color: var(--white);
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin-bottom: 1.5rem;
@@ -155,7 +157,7 @@ body.dark .create-todo input[type="text"] {
     display: block;
     width: 100%;
     font-size: 1.125rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem;
     color: var(--grey);
     background-color: var(--mulberry);
     border-radius: 0.5rem;
@@ -204,9 +206,9 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 999px;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 10rem;
     border: 2px solid var(--business);
     box-shadow: var(--business-glow);
 }
@@ -220,11 +222,9 @@ input[type="checkbox"] {
     content: '';
     display: block;
     opacity: 0;
-    width: 0px;
-    height: 0px;
     background-color: var(--business);
     box-shadow: var(--business-glow);
-    border-radius: 999px;
+    border-radius: 10rem;
     transition: 0.2s ease-in-out;
 }
 
@@ -234,8 +234,8 @@ input[type="checkbox"] {
 }
 
 input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
+    width: 0.75rem;
+    height: 0.75rem;
     opacity: 1;
 }
 
@@ -340,7 +340,7 @@ body.dark .todo-item .todo-content input {
 .todo-item .actions button {
     display: block;
     padding: 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     color: #FFF;
     cursor: pointer;
     transition: 0.2s ease-in-out;
@@ -366,9 +366,12 @@ body.dark .todo-item .todo-content input {
 }
 .mode {
     display: flex;
+    align-items: center;
+
 }
 .mode h4 {
-    padding: 10px;
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
 }
 .mode .toggle {
     height: 2rem;
@@ -377,7 +380,8 @@ body.dark .todo-item .todo-content input {
     border-radius: 1.3rem;
     box-shadow: var(--shadow);
     transition: all 0.3s ease-in-out;
-
+    align-items: center;
+    justify-content: center;
 }
 
 body.dark .mode .toggle {
@@ -391,10 +395,10 @@ body.dark .mode .toggle {
     content:'';
     background: var(--personal);
     position: absolute;
-    margin: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 999px;
+    margin: 0.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 10rem;
     border: 2px solid var(--personal);
     box-shadow: var(--dark);
     transition: all 0.3s ease-in-out;
@@ -411,8 +415,8 @@ body.dark .mode .toggle {
 .greeting .custom-alert {
     display: none;
     position: fixed;
-    background-color: var(--light);
-    border-radius: 500px;
+    background-color: var(--white);
+    border-radius: 10rem;
     border: 2px solid var(--personal);
     box-shadow: var(--dark);
     padding: 0.5rem;
@@ -421,8 +425,8 @@ body.dark .greeting .custom-alert {
     display: none;
     position: fixed;
     background-color: var(--mulberry);
-    border-radius: 500px;
-    border: 2px solid var(--mulberry);
+    border-radius: 10rem;
+    border: 2px solid var(--personal);
     box-shadow: var(--mulberry);
     padding: 0.8rem;
 }
@@ -434,63 +438,24 @@ body.dark .greeting .custom-alert {
 }
 
 .greeting .alert-content p{
-    padding: 10px;
+    padding: 0.5rem;
 }
 body.dark .greeting .alert-content p {
-    padding: 10px;
+    padding: 0.5rem;
     color: var(--grey);
 }
 
 .greeting .close-btn{
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 0.5rem;
 }
 
 body.dark .alerts .close-btn{
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
-    padding-left: 10px;
+    padding-left: 0.5rem;
     color: var(--grey);
 }
-
-/*.modal{*/
-/*    left:50%;*/
-/*    display: flex;*/
-
-/*}*/
-
-/*button.show-modal {*/
-/*    position:absolute;*/
-/*    border-radius: 500px;*/
-/*    border: 2px solid var(--mulberry);*/
-/*    box-shadow: var(--mulberry);*/
-
-/*}*/
-
-/*.overlay{*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    position: absolute;*/
-/*    background-color: white;*/
-/*    opacity: 0;*/
-/*    pointer-events: none;*/
-/*}*/
-
-/*.modal-box{*/
-/*    position:relative;*/
-/*    max-width: 10rem;*/
-/*    width:100%;*/
-/*    background-color: white;*/
-/*    border-radius: 24px;*/
-/*    padding: 10px;*/
-/*    align-items: center;*/
-/*    opacity: 1;*/
-/*    pointer-events: none;*/
-/*}*/
-/*.modal-box button.close-button{*/
-/*    font-size: 2rem;*/
-/*    padding: 0.5rem;*/
-/*}*/
