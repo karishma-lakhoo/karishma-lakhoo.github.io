@@ -1,3 +1,4 @@
+// Event listener when the window has finished loading
 window.addEventListener('load', () => {
     const body = document.querySelector('body')
     todos = JSON.parse(localStorage.getItem('todos')) || [];
