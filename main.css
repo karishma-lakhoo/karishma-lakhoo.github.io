@@ -9,6 +9,7 @@
     --dark: #313154;
     --danger: #ff5b57;
     --mulberry: #251F25;
+    --grape: #1E191E;
     --shadowg: #0000001a;
 
     /*shadow and glow variables*/
@@ -23,6 +24,21 @@
     font-family: 'poppins';
 }
 
+body{
+    background: var(--light);
+    color: var(--dark);
+    transition: all 0.3s ease-in-out;
+}
+body.dark{
+    background-color: var(--grape);
+    color: var(--dark);
+}
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
 /*input styles - reset*/
 input[type='text'],
 input[type='submit'],
@@ -32,48 +48,6 @@ button {
     outline: none;
     background: none;
     cursor: initial;
-}
-
-input[type="date"] {
-    display: block;
-    width: 100%;
-    font-size: 1rem;
-    padding: 1rem;
-    color: var(--dark);
-    background-color: var(--white);
-    border: 1px solid var(--light);
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 0.75rem;
-}
-
-body.dark input[type="date"] {
-    display: block;
-    width: 100%;
-    font-size: 1rem;
-    padding: 1rem;
-    color: var(--grey);
-    background-color: var(--mulberry);
-    border: 1px solid var(--mulberry);
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 0.75rem;
-}
-
-body{
-    background: var(--light);
-    color: var(--dark);
-    transition: all 0.3s ease-in-out;
-}
-body.dark{
-    background-color: #1E191E;
-    color: var(--dark);
-}
-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
 }
 
 h2 {
@@ -116,6 +90,31 @@ body.dark h4 {
     margin-bottom: 0.5rem;
 }
 
+input[type="date"] {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--dark);
+    background-color: var(--white);
+    border: 1px solid var(--light);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+body.dark input[type="date"] {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--grey);
+    background-color: var(--mulberry);
+    border: 1px solid var(--mulberry);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+
 .greeting.title {
     display: flex;
 }
@@ -128,8 +127,9 @@ body.dark h4 {
     color: var(--personal);
     font-weight: 300;
 }
-
-
+.create-todo{
+    display: block;
+}
 .create-todo input[type="text"] {
     display: block;
     width: 100%;
@@ -139,7 +139,6 @@ body.dark h4 {
     background-color: var(--white);
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
 }
 
 body.dark .create-todo input[type="text"] {
@@ -151,7 +150,6 @@ body.dark .create-todo input[type="text"] {
     background-color: var(--mulberry);
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
-    margin-bottom: 1.5rem;
 }
 
 
@@ -167,7 +165,7 @@ body.dark .create-todo input[type="text"] {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #FFF;
+    background-color: var(--white);
     padding: 1.5rem;
     box-shadow: var(--shadow);
     border-radius: 0.5rem;
@@ -243,7 +241,7 @@ body.dark .create-todo .options label div {
     width: 100%;
     font-size: 1.125rem;
     padding: 1rem 1.5rem;
-    color: #FFF;
+    color: var(--white);
     font-weight: 700;
     text-transform: uppercase;
     background-color: var(--primary);
@@ -330,7 +328,7 @@ body.dark .todo-item .todo-content input {
     display: block;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    color: #FFF;
+    color: var(--white);
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
