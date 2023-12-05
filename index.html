@@ -6,6 +6,9 @@
 <!--Link to Poppins font-->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 </head>
 <body>
     <main class="app">
@@ -81,17 +84,14 @@
             <div class="toggle"></div>
             <h4>Change Display Mode</h4>
         </section>
-<!--        <section class="modal">-->
-<!--&lt;!&ndash;            <button class="show-modal">Show Modal</button>&ndash;&gt;-->
-<!--            <span class="overlay"></span>-->
-<!--            <div class="modal-box">-->
-<!--                <h4>Completed a task</h4>-->
-<!--                <div class="buttons">-->
-<!--                    <button class="close-button">Close</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
+        <section class="modal-section">
+            <div class="custom-modal" id="custom-modal">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeModal()">&times;</span>
+                    <p>This is a modal!</p>
+                </div>
+            </div>
+        </section>
     </main>
-    <script src="main.js"></script>
 </body>
 </html>

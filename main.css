@@ -447,3 +447,29 @@ body.dark .alerts .close-btn{
     padding-left: 0.5rem;
     color: var(--grey);
 }
+
+.custom-modal{
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-section .modal-content {
+    position: fixed;
+    top: 50vw;
+    background: #fff;
+    padding: 10rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin:auto;
+}
+
+.modal-content .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000; /* Adjust the color as needed */
+}

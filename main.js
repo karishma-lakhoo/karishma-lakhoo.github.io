@@ -1,15 +1,15 @@
 // Event listener when the window has finished loading
 window.addEventListener('load', () => {
     const body = document.querySelector('body')
-    todos = JSON.parse(localStorage.getItem('todos')) || [];
     const nameInput = document.querySelector('#name');
     const newTodoForm = document.querySelector('#new-todo-form');
-
-    const username = localStorage.getItem('username') || '';
     const toggle = document.querySelector(".toggle");
+
+    // get items from local storage
+    todos = JSON.parse(localStorage.getItem('todos')) || [];
+    const username = localStorage.getItem('username') || '';
     const isDarkModeEnabled = localStorage.getItem('mode') === 'dark';
     nameInput.value = username;
-
 
     if (isDarkModeEnabled) {
         body.classList.add('dark');
@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
 // Function to display todos
 function DisplayTodos () {
     const todoList = document.querySelector('#todo-list');
-    todoList.innerHTML = "";
+    todoList.innerText = "";
 
     todos.sort((a, b) => {
         return new Date(a.dueDate) - new Date(b.dueDate);
@@ -83,6 +83,7 @@ function DisplayTodos () {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-item');
 
+        // appending elements to the todo-item
         const label = document.createElement('label');
         const input = document.createElement('input');
         const span = document.createElement('span');
@@ -91,7 +92,6 @@ function DisplayTodos () {
         const actions = document.createElement('div');
         const edit = document.createElement('button');
         const deleteButton = document.createElement('button');
-
 
         input.type = 'checkbox';
         input.checked = todo.done;
@@ -145,8 +145,13 @@ function DisplayTodos () {
         if (todo.done) {
             todoItem.classList.add('done');
         }
-        // Event Listener to check the changes in the checkbox
+        // Event Listener to check the changes in the checkbox and show modal
         input.addEventListener('change', (e) => {
+            if (!todo.done && e.target.checked) {
+                // Show the modal when marking the item as done
+                console.log("modal should open")
+                showModal();
+            }
             todo.done = e.target.checked;
             localStorage.setItem('todos', JSON.stringify(todos));
             // adding and removing the done items
@@ -159,6 +164,7 @@ function DisplayTodos () {
             DisplayTodos()
 
         })
+
 
         edit.addEventListener('click', (e) => {
             const input = content.querySelector('input');
@@ -193,4 +199,15 @@ function closeAlert(){
     var customAlert = document.getElementById('customAlert')
     customAlert.style.display = "none";
 
+}
+
+function showModal(){
+    console.log("Modal is being displayed");
+    var customModal = document.getElementById('custom-modal');
+    customModal.style.display='flex';
+}
+
+function closeModal(){
+    var customModal = document.getElementById('custom-modal');
+    customModal.style.display = 'none';
 }
