@@ -11,6 +11,7 @@
     --mulberry: #251F25;
     --grape: #1E191E;
     --shadowg: #0000001a;
+    --charcoal: #DBDCDE;
 
     /*shadow and glow variables*/
     --shadow: 0 1px 3px var(--shadowg);
@@ -25,7 +26,7 @@
 }
 
 body{
-    background: var(--light);
+    background: var(--charcoal);
     color: var(--dark);
     transition: all 0.3s ease-in-out;
 }
