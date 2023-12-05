@@ -11,28 +11,19 @@
     --mulberry: #251F25;
     --shadowg: #0000001a;
 
-    /*check if it works on firefox
-    get rid of 100% use proper containers*/
-    /*using dollars, try to replace that*/
-    /*map or join instead of forEach*/
-    /*chnage date formatting when checking created
-    never use.innerhtml
-    what if they dont have an option for local storage (dont use state, it needs to request state)
-    change delete naming conventoin to be more descriptive
-    add comments*/
-
+    /*shadow and glow variables*/
     --shadow: 0 1px 3px var(--shadowg);
-
     --business-glow: 0px 0px 4px var(--business);
     --personal-glow: 0px 0px 4px var(--personal);
 }
 
-
+/*Global Styles*/
 * {
     box-sizing: border-box;
     font-family: 'poppins';
-
 }
+
+/*input styles - reset*/
 input[type='text'],
 input[type='submit'],
 button {
@@ -42,7 +33,6 @@ button {
     background: none;
     cursor: initial;
 }
-
 
 input[type="date"] {
     display: block;
@@ -56,6 +46,7 @@ input[type="date"] {
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
+
 body.dark input[type="date"] {
     display: block;
     width: 100%;
@@ -68,8 +59,6 @@ body.dark input[type="date"] {
     box-shadow: var(--shadow);
     margin-bottom: 0.75rem;
 }
-
-
 
 body{
     background: var(--light);
@@ -290,7 +279,7 @@ body.dark .create-todo input[type="submit"] {
 .todo-list .todo-item {
     display: flex;
     align-items: center;
-    background-color: #FFF;
+    background-color: var(--white);
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
@@ -366,12 +355,13 @@ body.dark .todo-item .todo-content input {
 }
 .mode {
     display: flex;
+    flex-direction: row;
     align-items: center;
-
+    position: relative;
 }
 .mode h4 {
     padding-left: 1rem;
-    margin-bottom: 1.25rem;
+    align-self: center;
 }
 .mode .toggle {
     height: 2rem;

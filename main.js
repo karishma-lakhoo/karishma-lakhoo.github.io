@@ -8,12 +8,15 @@ window.addEventListener('load', () => {
     const username = localStorage.getItem('username') || '';
     const toggle = document.querySelector(".toggle");
     const isDarkModeEnabled = localStorage.getItem('mode') === 'dark';
+    nameInput.value = username;
+
 
     if (isDarkModeEnabled) {
         body.classList.add('dark');
         toggle.classList.add('active');
     }
 
+    // Event listener for toggling dark mode
     toggle.addEventListener("click", () => toggle.classList.toggle("active"))
     toggle.addEventListener('click', () => {
         body.classList.toggle('dark')
@@ -24,12 +27,12 @@ window.addEventListener('load', () => {
         localStorage.setItem('mode', 'dark')
     })
 
-    nameInput.value = username;
-
+    // Event listener for changing the username
     nameInput.addEventListener('change', (e) => {
         localStorage.setItem('username', e.target.value);
     })
 
+    // Event listener for adding a new todo
     newTodoForm.addEventListener('submit', e => {
         e.preventDefault();
 
@@ -44,28 +47,30 @@ window.addEventListener('load', () => {
             return;
         }
 
+        // Creating a new todo object
         const todo = {
             content: contentValue,
             category: categoryValue,
             dueDate: dueDateValue,
             done: false,
-            createdAt: new Date().getTime()
         }
 
-
+        // Adding the todo to the list and saving todos to local storage
         todos.push(todo);
 
         localStorage.setItem('todos', JSON.stringify(todos));
 
         // Reset the form
         e.target.reset();
-
+        // displaying the updated list of todos
         DisplayTodos()
     })
-
+    // initial display of todos
     DisplayTodos()
 })
 
+
+// Function to display todos
 function DisplayTodos () {
     const todoList = document.querySelector('#todo-list');
     todoList.innerHTML = "";
@@ -74,7 +79,7 @@ function DisplayTodos () {
         return new Date(a.dueDate) - new Date(b.dueDate);
     });
 
-    todos.forEach(todo => {
+    todos.map(todo => {
         const todoItem = document.createElement('div');
         todoItem.classList.add('todo-item');
 
@@ -86,6 +91,7 @@ function DisplayTodos () {
         const actions = document.createElement('div');
         const edit = document.createElement('button');
         const deleteButton = document.createElement('button');
+
 
         input.type = 'checkbox';
         input.checked = todo.done;
@@ -101,11 +107,28 @@ function DisplayTodos () {
         edit.classList.add('edit');
         deleteButton.classList.add('delete');
 
-        content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
-        dueDate.innerHTML = `<input type="text" value="${todo.dueDate}" readonly>`;
-        edit.innerHTML = 'Edit';
-        deleteButton.innerHTML = 'Delete';
+        // replacing the innerHTML
+        // content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+        const contentInput = document.createElement('input');
+        contentInput.type = 'text'
+        contentInput.value = todo.content
+        contentInput.readOnly = true;
+        content.appendChild(contentInput)
 
+        // replacing the innerHTML
+        // dueDate.innerHTML = `<input type="text" value="${todo.dueDate}" readonly>`;
+        const dueDateInput = document.createElement("input");
+        dueDateInput.type = 'text'
+        dueDateInput.value = todo.dueDate
+        dueDateInput.readOnly = true
+        dueDate.appendChild(dueDateInput)
+
+        // edit.innerHTML = 'Edit';
+        edit.innerText = "Edit"
+        // deleteButton.innerHTML = 'Delete';
+        deleteButton.innerText = "Delete"
+
+        // Appending elements to the todo item
         label.appendChild(input);
         label.appendChild(span);
         actions.appendChild(edit);
@@ -115,22 +138,24 @@ function DisplayTodos () {
         todoItem.appendChild(dueDate);
         todoItem.appendChild(actions);
 
+        // Appending todo item to the todo list
         todoList.appendChild(todoItem);
 
+        // Adding 'done' class to check if the todo is completed
         if (todo.done) {
             todoItem.classList.add('done');
         }
-
+        // Event Listener to check the changes in the checkbox
         input.addEventListener('change', (e) => {
             todo.done = e.target.checked;
             localStorage.setItem('todos', JSON.stringify(todos));
-
+            // adding and removing the done items
             if (todo.done) {
                 todoItem.classList.add('done');
             } else {
                 todoItem.classList.remove('done');
             }
-
+            // displaying updated todos
             DisplayTodos()
 
         })
