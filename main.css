@@ -448,18 +448,34 @@ body.dark .alerts .close-btn{
     color: var(--grey);
 }
 
-.custom-modal{
+.custom-modal {
     display: none;
     position: fixed;
-    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     align-items: center;
+    justify-content: center;
 }
+
+
 
 .modal-section .modal-content {
     position: fixed;
-    top: 50vw;
-    background: #fff;
-    padding: 10rem;
+
+    background: var(--light);
+    padding: 5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin:auto;
+}
+
+body.dark .modal-section .modal-content {
+    position: fixed;
+
+    background: var(--mulberry);
+    padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
     margin:auto;
@@ -467,9 +483,31 @@ body.dark .alerts .close-btn{
 
 .modal-content .close-modal {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
     cursor: pointer;
-    color: #000; /* Adjust the color as needed */
+    color: var(--dark);
+}
+
+body.dark .modal-content .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--light);
+}
+
+
+lottie-player{
+    background-color: var(--light);
+    width: auto;
+    height: auto;
+}
+
+body.dark lottie-player{
+    background-color: var(--mulberry);
+    width: auto;
+    height: auto;
 }
