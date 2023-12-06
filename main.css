@@ -448,3 +448,67 @@ body.dark .alerts .close-btn{
     padding-left: 0.5rem;
     color: var(--grey);
 }
+
+.custom-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.modal-section .modal-content {
+    position: fixed;
+
+    background: var(--light);
+    padding: 5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin:auto;
+}
+
+body.dark .modal-section .modal-content {
+    position: fixed;
+
+    background: var(--mulberry);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    margin:auto;
+}
+
+.modal-content .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+body.dark .modal-content .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--light);
+}
+
+
+lottie-player{
+    background-color: var(--light);
+    width: auto;
+    height: auto;
+}
+
+body.dark lottie-player{
+    background-color: var(--mulberry);
+    width: auto;
+    height: auto;
+}
